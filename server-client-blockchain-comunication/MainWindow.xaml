@@ -1,0 +1,52 @@
+﻿<Window x:Class="server_client_blockchain_communication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Blockchain" Height="300" Width="750">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Buttons, Name Box, Connect/Mine Buttons -->
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Node name: " Height="25" Margin="10 5 0 0" />
+                <TextBox x:Name="NameBox" Width="150" Height="25" Margin="20 0 0 0" />
+                <!--Click="StartServer_onClick"-->
+                <Button x:Name="MineButton" Click="MineButton_OnClick" Margin="15 0 0 0" Content="Mine" Height="25"
+                        Width="Auto" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Status:" Margin="20 5 0 0" />
+                <Label Name="StatusLabel" Content=" Offline " Margin="54 2 0 0" />
+            </StackPanel>
+        </StackPanel>
+        <!-- Left Box -->
+
+
+        <!-- Right Box -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox Name="OutputMining" x:FieldModifier="protected" Height="200" Margin="20" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <!-- Right Button, TextBox -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right"
+                    VerticalAlignment="Top" Margin="10">
+            <TextBox x:Name="PortBox" Width="150" Height="25" Margin="0 0 10 0"
+                     PreviewTextInput="PortBox_OnPreviewTextInput" />
+            <Button x:Name="ConnectPortButton" Margin="0 0 15 0" Content="Connect Port" Height="25" Width="Auto"
+                    Click="ConnectToBlockchain_onClick" />
+        </StackPanel>
+
+
+    </Grid>
+</Window>
